@@ -39,7 +39,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
 
 # Enable CORS for frontend
-CORS(app, origins=['http://localhost:5000', 'https://moeedhassan.dev'])
+CORS(app, origins=['http://localhost:5000', 'https://leafbloom.online'])
 
 # Rate limiting
 limiter = Limiter(

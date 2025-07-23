@@ -889,5 +889,20 @@
     <script src="js/contact.js"></script>
     <script src="js/gamification.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Add this music player popup near existing audio controls -->
+    <div class="music-player-popup">
+        <div class="player-header">
+            <span>Now Playing</span>
+            <button class="close-player">&times;</button>
+        </div>
+        <audio id="halal-music" controls autoplay>
+            <source src="./audio/arabic-islamic-islam-music-360770.mp3" type="audio/mpeg">
+        </audio>
+        <div class="visualizer"></div>
+    </div>
+    
+    <!-- Add to existing style links -->
+    <link rel="stylesheet" href="styles/music-player.css">
 </body>
 </html>

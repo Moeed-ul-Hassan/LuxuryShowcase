@@ -1,0 +1,71 @@
+.music-player-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: #fff;
+    width: 280px;
+    transform: translateX(120%); /* Start off-screen */
+    animation: slideIn 0.8s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0); /* Slide in to position */
+    }
+}
+
+.music-player-popup.hidden {
+    animation: slideOut 0.8s forwards;
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(120%);
+    }
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.player-header span {
+    font-weight: bold;
+}
+
+.close-player {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.music-player-popup audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.visualizer {
+    height: 50px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 10px;
+    /* Basic animation for visualizer */
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scaleY(0.8); opacity: 0.7; }
+    100% { transform: scaleY(1); opacity: 1; }
+}

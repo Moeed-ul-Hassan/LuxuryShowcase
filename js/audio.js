@@ -9,6 +9,7 @@ class AudioSystem {
         this.audioContext = null;
         this.backgroundMusic = null;
         this.musicEnabled = false;
+        this.halalMusicPlayer = null;
         
         this.init();
     }
@@ -19,6 +20,7 @@ class AudioSystem {
             await this.loadSounds();
             this.setupEventListeners();
             this.initializeBackgroundMusic();
+            this.setupHalalMusicPlayer();
         } catch (error) {
             console.warn('Audio system initialization failed:', error);
             this.isEnabled = false;
@@ -198,10 +200,54 @@ class AudioSystem {
             // Fade in gradually
             const volume = (0.02 - index * 0.003) * this.volume;
             gainNode.gain.exponentialRampToValueAtTime(
-                volume, 
+                volume,
                 this.audioContext.currentTime + 2
             );
         });
+    }
+
+    setupHalalMusicPlayer() {
+        this.halalMusicPlayer = document.getElementById('halal-music');
+        const musicPlayerPopup = document.querySelector('.music-player-popup');
+        const closePlayerBtn = document.querySelector('.music-player-popup .close-player');
+
+        if (this.halalMusicPlayer) {
+            // Autoplay the halal music
+            this.halalMusicPlayer.play().catch(error => {
+                console.warn('Autoplay prevented:', error);
+                // Show popup if autoplay is prevented, prompt user to play
+                if (musicPlayerPopup) {
+                    musicPlayerPopup.classList.remove('hidden');
+                }
+            });
+
+            // Hide popup after a few seconds if music is playing
+            this.halalMusicPlayer.addEventListener('play', () => {
+                if (musicPlayerPopup) {
+                    setTimeout(() => {
+                        musicPlayerPopup.classList.add('hidden');
+                    }, 5000); // Hide after 5 seconds
+                }
+            });
+        }
+
+        if (closePlayerBtn) {
+            closePlayerBtn.addEventListener('click', () => {
+                if (musicPlayerPopup) {
+                    musicPlayerPopup.classList.add('hidden');
+                }
+            });
+        }
+
+        // Show popup initially if autoplay fails or on user interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            if (this.halalMusicPlayer && this.halalMusicPlayer.paused) {
+                if (musicPlayerPopup) {
+                    musicPlayerPopup.classList.remove('hidden');
+                }
+            }
+        });
+    });
         
         this.musicEnabled = true;
     }
