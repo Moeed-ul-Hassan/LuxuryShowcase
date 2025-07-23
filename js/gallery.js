@@ -58,97 +58,13 @@ class GalleryManager {
     }
 
     loadGalleryData() {
-        // Gallery data - real project showcases
-        this.galleryItems = [
-            {
-                id: 1,
-                title: 'Pulse AI HMS Dashboard',
-                description: 'Advanced Hospital Management System with AI-powered analytics and patient monitoring.',
-                category: 'backend',
-                tags: ['Python', 'FastAPI', 'AI/ML', 'Healthcare'],
-                image: 'fas fa-hospital',
-                technologies: ['Python', 'FastAPI', 'PostgreSQL', 'AI/ML', 'Docker'],
-                year: '2025',
-                status: 'Completed'
-            },
-            {
-                id: 2,
-                title: 'Inbox Shield Email Security',
-                description: 'AI-powered email security system that detects and prevents phishing attempts.',
-                category: 'backend',
-                tags: ['AI', 'Security', 'Email', 'Python'],
-                image: 'fas fa-shield-alt',
-                technologies: ['Python', 'Machine Learning', 'Gmail API', 'TensorFlow'],
-                year: '2024',
-                status: 'Completed'
-            },
-            {
-                id: 3,
-                title: 'Mail Hawk Protection System',
-                description: 'Smart inbox protection with real-time threat detection and automated responses.',
-                category: 'backend',
-                tags: ['Security', 'Automation', 'API'],
-                image: 'fas fa-eye',
-                technologies: ['Python', 'FastAPI', 'Redis', 'Celery', 'AI'],
-                year: '2025',
-                status: 'In Development'
-            },
-            {
-                id: 4,
-                title: 'E-commerce Backend API',
-                description: 'Scalable REST API for multi-vendor e-commerce platform with payment integration.',
-                category: 'backend',
-                tags: ['API', 'E-commerce', 'Payment'],
-                image: 'fas fa-shopping-cart',
-                technologies: ['Python', 'Flask', 'SQLAlchemy', 'Stripe API'],
-                year: '2024',
-                status: 'Completed'
-            },
-            {
-                id: 5,
-                title: 'Portfolio Website Design',
-                description: 'Luxury responsive portfolio website with advanced animations and glassmorphism effects.',
-                category: 'ui',
-                tags: ['Frontend', 'Design', 'Animation'],
-                image: 'fas fa-paint-brush',
-                technologies: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API'],
-                year: '2025',
-                status: 'Completed'
-            },
-            {
-                id: 6,
-                title: 'Real Estate Management App',
-                description: 'Full-stack application for property management with virtual tours and client portal.',
-                category: 'mobile',
-                tags: ['Full-Stack', 'Real Estate', 'Mobile'],
-                image: 'fas fa-building',
-                technologies: ['React', 'Node.js', 'MongoDB', 'React Native'],
-                year: '2024',
-                status: 'Completed'
-            },
-            {
-                id: 7,
-                title: 'Automated Trading Bot',
-                description: 'Cryptocurrency trading bot with machine learning prediction algorithms.',
-                category: 'backend',
-                tags: ['Trading', 'AI', 'Automation'],
-                image: 'fas fa-chart-line',
-                technologies: ['Python', 'Pandas', 'Scikit-learn', 'WebSocket'],
-                year: '2024',
-                status: 'Completed'
-            },
-            {
-                id: 8,
-                title: 'Content Management System',
-                description: 'Custom CMS with role-based access control and media management.',
-                category: 'backend',
-                tags: ['CMS', 'Admin Panel', 'API'],
-                image: 'fas fa-cogs',
-                technologies: ['Django', 'PostgreSQL', 'Redis', 'AWS S3'],
-                year: '2023',
-                status: 'Completed'
-            }
-        ];
+        // Load gallery data from the global galleryData array
+        if (typeof galleryData !== 'undefined') {
+            this.galleryItems = galleryData;
+        } else {
+            console.error('galleryData is not defined. Make sure galleryData.js is loaded before gallery.js');
+            this.galleryItems = [];
+        }
 
         this.filteredItems = [...this.galleryItems];
         this.renderGallery();
@@ -180,7 +96,7 @@ class GalleryManager {
 
         galleryItem.innerHTML = `
             <div class="gallery-image">
-                <i class="${item.image}"></i>
+                <img src="${item.src}" alt="${item.title}">
                 <div class="gallery-overlay">
                     <div class="overlay-content">
                         <button class="view-btn" data-action="view">
@@ -206,7 +122,7 @@ class GalleryManager {
                     </span>
                 </div>
                 <div class="gallery-tags">
-                    ${item.tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
+                    ${(item.tags || []).map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
                 </div>
             </div>
         `;
@@ -335,7 +251,7 @@ class GalleryManager {
     setupLightbox() {
         if (!this.lightboxModal) return;
 
-        const closeBtn = this.lightboxModal.querySelector('.lightbox-close');
+        const closeBtn = this.lightboxModal.querySelector('.close-btn');
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 this.closeLightbox();
@@ -389,11 +305,8 @@ class GalleryManager {
 
     updateLightboxContent(item) {
         if (this.lightboxImage) {
-            // Since we're using icons instead of real images, create a large icon display
             this.lightboxImage.innerHTML = `
-                <div class="lightbox-icon-display">
-                    <i class="${item.image}"></i>
-                </div>
+                <img src="${item.src}" alt="${item.title}" class="lightbox-actual-image">
             `;
         }
 
@@ -419,9 +332,7 @@ class GalleryManager {
         }
 
         if (this.lightboxTech) {
-            this.lightboxTech.innerHTML = item.technologies.map(tech => 
-                `<span class="tech-badge">${tech}</span>`
-            ).join('');
+            this.lightboxTech.innerHTML = `<strong>Technologies:</strong> ${item.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}`;
         }
     }
 

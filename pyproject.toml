@@ -1,5 +1,5 @@
 [project]
-name = "Moeed ul Hassan Portfolio"
+name = "moeed-ul-hassan-portfolio"
 version = "0.1.0"
 description = "it is portfolio for moeed ul hassan"
 requires-python = ">=3.11"

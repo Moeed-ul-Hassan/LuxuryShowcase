@@ -16,6 +16,7 @@ from typing import Dict, Any, Optional
 import re
 
 from flask import Flask, request, jsonify, render_template_string, send_from_directory, send_file
+from waitress import serve
 from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -588,14 +589,31 @@ def not_found_handler(e):
         'message': 'Endpoint not found'
     }), 404
 
+@app.route('/styles/<path:filename>')
+def serve_styles(filename):
+    return send_from_directory('styles', filename)
+
+@app.route('/js/<path:filename>')
+def serve_js(filename):
+    return send_from_directory('js', filename)
+
+@app.route('/data/<path:filename>')
+def serve_data(filename):
+    return send_from_directory('data', filename)
+
+@app.route('/assets/images/gallery/<path:filename>')
+def serve_gallery_images(filename):
+    return send_from_directory('assets/images/gallery', filename)
+
 @app.errorhandler(500)
 def internal_error_handler(e):
     """Handle 500 errors."""
     logger.error(f"Internal server error: {str(e)}")
-    return jsonify({
-        'success': False,
-        'message': 'Internal server error'
-    }), 500
+    return jsonify(
+        {
+            'success': False,
+            'message': 'Internal server error'
+        }), 500
 
 if __name__ == '__main__':
     # Initialize database
@@ -610,10 +628,5 @@ if __name__ == '__main__':
     logger.info(f"Debug mode: {debug}")
     
     # Start the server
-    app.run(
-        host=host,
-        port=port,
-        debug=debug,
-        threaded=True
-    )
+    serve(app, host=host, port=port)
 

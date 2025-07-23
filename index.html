@@ -484,60 +484,24 @@
         <!-- Projects Section -->
         <section id="projects" class="section projects-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-icon">💻</span>
-                        Featured Projects
-                    </h2>
-                    <p class="section-subtitle">Building the future, one project at a time</p>
-                </div>
+                <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">A showcase of my impactful work.</p>
 
-                <!-- Project Filters -->
                 <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="ai">AI Tools</button>
-                    <button class="filter-btn" data-filter="backend">Backend APIs</button>
-                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-                    <button class="filter-btn" data-filter="automation">Automation</button>
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="ai">AI/ML</button>
                 </div>
 
-                <!-- Projects Grid -->
                 <div class="projects-grid" id="projects-grid">
-                    <!-- Projects will be populated by JavaScript -->
+                    <!-- Projects will be loaded here by JavaScript -->
                 </div>
 
-                <!-- GitHub Stats -->
-                <div class="github-stats">
-                    <h3>Development Activity</h3>
-                    <div class="stats-container">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-number">250+</div>
-                                <div class="stat-label">Commits This Year</div>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-code-branch"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-number">15</div>
-                                <div class="stat-label">Active Repositories</div>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">GitHub Stars</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pagination" id="project-pagination">
+                    <!-- Pagination will be loaded here by JavaScript -->
                 </div>
             </div>
         </section>
@@ -545,48 +509,36 @@
         <!-- Gallery Section -->
         <section id="gallery" class="section gallery-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-icon">🎨</span>
-                        Project Gallery
-                    </h2>
-                    <p class="section-subtitle">Visual showcase of my work</p>
+                <h2 class="section-title">My <span class="highlight">Gallery</span></h2>
+                <p class="section-subtitle">Visual showcase of my creations.</p>
+
+                <div class="gallery-filters">
+                    <button class="gallery-filter active" data-category="all">All</button>
+                    <button class="gallery-filter" data-category="backend">Backend</button>
+                    <button class="gallery-filter" data-category="ui">UI/UX</button>
+                    <button class="gallery-filter" data-category="mobile">Mobile</button>
                 </div>
 
-                <!-- Gallery Controls -->
-                <div class="gallery-controls">
-                    <div class="gallery-search">
-                        <input type="text" id="gallery-search" placeholder="Search projects...">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="gallery-filters">
-                        <button class="gallery-filter active" data-category="all">All</button>
-                        <button class="gallery-filter" data-category="ui">UI Design</button>
-                        <button class="gallery-filter" data-category="backend">Backend</button>
-                        <button class="gallery-filter" data-category="mobile">Mobile</button>
-                    </div>
+                <div class="gallery-search-bar">
+                    <input type="text" id="gallery-search" placeholder="Search gallery items...">
+                    <i class="fas fa-search"></i>
                 </div>
 
-                <!-- Gallery Grid -->
                 <div class="gallery-grid" id="gallery-grid">
-                    <!-- Gallery items will be populated by JavaScript -->
+                    <!-- Gallery items will be loaded here by JavaScript -->
                 </div>
 
                 <!-- Lightbox Modal -->
-                <div class="lightbox-modal" id="lightbox-modal">
+                <div id="lightbox-modal" class="lightbox-modal">
                     <div class="lightbox-content">
-                        <button class="lightbox-close">&times;</button>
-                        <div class="lightbox-image-container">
-                            <img id="lightbox-image" src="" alt="">
-                            <div class="lightbox-nav">
-                                <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
-                                <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="lightbox-info">
-                            <h3 id="lightbox-title"></h3>
-                            <p id="lightbox-description"></p>
-                            <div class="lightbox-tech" id="lightbox-tech"></div>
+                        <span class="close-btn">&times;</span>
+                        <img src="" alt="" id="lightbox-image">
+                        <h3 id="lightbox-title"></h3>
+                        <p id="lightbox-description"></p>
+                        <p id="lightbox-tech"></p>
+                        <div class="lightbox-nav">
+                            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -881,6 +833,7 @@
     <script src="data/projects.js"></script>
     <script src="data/quotes.js"></script>
     <script src="data/achievements.js"></script>
+    <script src="data/galleryData.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/gallery.js"></script>

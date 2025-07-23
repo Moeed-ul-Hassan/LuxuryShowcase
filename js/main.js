@@ -96,7 +96,6 @@ class PortfolioApp {
         this.setupSectionNavigation();
         this.setupBackToTop();
         this.populateProjects();
-        this.populateGallery();
         this.populateAchievements();
         this.startTypingAnimation();
         this.setupSkillBars();
@@ -194,13 +193,7 @@ class PortfolioApp {
             });
         });
 
-        // Gallery filters
-        const galleryFilters = document.querySelectorAll('.gallery-filter');
-        galleryFilters.forEach(filter => {
-            filter.addEventListener('click', () => {
-                this.filterGallery(filter.getAttribute('data-category'));
-            });
-        });
+
     }
 
     showLoadingScreen() {
