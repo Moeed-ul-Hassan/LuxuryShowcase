@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moeed ul Hassan - The Legend | Python Backend Developer</title>
+    <meta name="description" content="Luxury portfolio of Moeed ul Hassan, a certified Python backend developer and founder of dev agency based in Gujrat, Pakistan.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👑%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="logo-loader">
+                <div class="crown-icon">👑</div>
+                <div class="legend-text">THE LEGEND</div>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loading-text">Initializing Portfolio...</div>
+        </div>
+        <div class="matrix-rain"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button id="audio-toggle" class="audio-btn" title="Toggle Background Music">
+            <i class="fas fa-volume-up"></i>
+        </button>
+        <button id="sfx-toggle" class="audio-btn" title="Toggle Sound Effects">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="crown">👑</span>
+                <span class="legend-brand">THE LEGEND</span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">
+                        <i class="fas fa-user"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#journey" class="nav-link" data-section="journey">
+                        <i class="fas fa-route"></i>
+                        <span>Journey</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link" data-section="projects">
+                        <i class="fas fa-code"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link" data-section="gallery">
+                        <i class="fas fa-images"></i>
+                        <span>Gallery</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- XP Bar -->
+            <div class="xp-bar">
+                <div class="xp-fill" id="xp-fill"></div>
+                <span class="xp-text" id="xp-text">XP: 0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Navigation Dots -->
+    <div class="section-nav">
+        <div class="nav-dot active" data-section="home"></div>
+        <div class="nav-dot" data-section="about"></div>
+        <div class="nav-dot" data-section="journey"></div>
+        <div class="nav-dot" data-section="projects"></div>
+        <div class="nav-dot" data-section="gallery"></div>
+        <div class="nav-dot" data-section="contact"></div>
+    </div>
+
+    <!-- Particle System -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section home-section">
+            <div class="home-container">
+                <div class="home-content">
+                    <div class="greeting-text">
+                        <span class="hello">Hello, I'm</span>
+                    </div>
+                    <h1 class="main-title">
+                        <span class="name-text" id="name-text">Moeed ul Hassan</span>
+                        <span class="legend-title">
+                            <span class="crown-large">👑</span>
+                            <span class="legend-text" id="legend-text">THE LEGEND</span>
+                        </span>
+                    </h1>
+                    <div class="subtitle">
+                        <span class="typing-text" id="typing-text"></span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+                    <p class="description">
+                        Certified Python Backend Developer & Founder of "Moeed ul Hassan; The Legend" - 
+                        Crafting AI-powered solutions and scalable backend architectures from Gujrat, Pakistan.
+                    </p>
+                    
+                    <div class="cta-buttons">
+                        <button class="cta-primary" onclick="scrollToSection('projects')">
+                            <i class="fas fa-rocket"></i>
+                            View My Work
+                        </button>
+                        <button class="cta-secondary" onclick="scrollToSection('contact')">
+                            <i class="fas fa-paper-plane"></i>
+                            Get In Touch
+                        </button>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/moeedhassan" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/moeedhassan" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/moeedhassan" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="mailto:moeed@thelegend.dev" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home-visual">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Available for Projects</h3>
+                            <p>Response within 2 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="157">0</div>
+                            <div class="stat-label">K+ Lines of Code</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="100">0</div>
+                            <div class="stat-label">% Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">👨‍💻</span>
+                        About The Legend
+                    </h2>
+                    <p class="section-subtitle">Passionate developer with a vision for the future</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-card">
+                            <h3>🚀 My Philosophy</h3>
+                            <p>
+                                I believe in creating software that doesn't just work, but makes a difference. 
+                                Every line of code is an opportunity to solve real problems and improve lives.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>💡 What Drives Me</h3>
+                            <p>
+                                Clean architecture, scalable solutions, and the endless possibilities of AI. 
+                                I'm passionate about backend engineering and automation that empowers businesses.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>🎯 Current Focus</h3>
+                            <p>
+                                Building AI-powered tools that solve real-world problems. Currently working on 
+                                Mail Hawk - a smart inbox protection system, and seeking top backend roles globally.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <h3>Technical Arsenal</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Backend Technologies</h4>
+                                <div class="skill-bars">
+                                    <div class="skill-bar">
+                                        <span class="skill-name">Python</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="95"></div>
+                                        </div>
+                                        <span class="skill-percent">95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <span class="skill-name">Flask/FastAPI</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="90"></div>
+                                        </div>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <span class="skill-name">RESTful APIs</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="92"></div>
+                                        </div>
+                                        <span class="skill-percent">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4>AI & Automation</h4>
+                                <div class="skill-bars">
+                                    <div class="skill-bar">
+                                        <span class="skill-name">Machine Learning</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="85"></div>
+                                        </div>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <span class="skill-name">AI Integration</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="88"></div>
+                                        </div>
+                                        <span class="skill-percent">88%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <span class="skill-name">Gmail APIs</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="80"></div>
+                                        </div>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4>Frontend & Full-Stack</h4>
+                                <div class="skill-bars">
+                                    <div class="skill-bar">
+                                        <span class="skill-name">JavaScript</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="82"></div>
+                                        </div>
+                                        <span class="skill-percent">82%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <span class="skill-name">HTML/CSS</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="90"></div>
+                                        </div>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <span class="skill-name">UI/UX Design</span>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill" data-skill="75"></div>
+                                        </div>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Badges -->
+                <div class="achievements-section">
+                    <h3>Achievements Unlocked</h3>
+                    <div class="achievements-grid" id="achievements-grid">
+                        <!-- Achievements will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="journey" class="section journey-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">🚀</span>
+                        The Journey (2022-2025)
+                    </h2>
+                    <p class="section-subtitle">From spark to legend - every step counts</p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-item" data-year="2022">
+                            <div class="timeline-marker">
+                                <div class="marker-icon">⚡</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2022</div>
+                                <h3>The Spark</h3>
+                                <p>
+                                    Discovered web development and started with HTML, CSS, and basic static websites. 
+                                    Spent late nights learning the core of the web — one line of code at a time.
+                                </p>
+                                <div class="timeline-tech">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-year="2023">
+                            <div class="timeline-marker">
+                                <div class="marker-icon">💼</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2023</div>
+                                <h3>The Hustle</h3>
+                                <p>
+                                    Started freelancing and founded my own agency. Took on WordPress, Shopify, and static website clients. 
+                                    Became known for honesty, commitment, and fast delivery. Started working with real clients and real expectations.
+                                </p>
+                                <div class="timeline-tech">
+                                    <span class="tech-tag">WordPress</span>
+                                    <span class="tech-tag">Shopify</span>
+                                    <span class="tech-tag">Freelancing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-year="2024">
+                            <div class="timeline-marker">
+                                <div class="marker-icon">🧠</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2024</div>
+                                <h3>The Shift</h3>
+                                <p>
+                                    Shifted to backend engineering. Learned Flask and FastAPI. Worked on AI integrations, 
+                                    automation tools, Gmail APIs, and RESTful services. No longer wanted to just build — wanted to create impact.
+                                </p>
+                                <div class="timeline-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">FastAPI</span>
+                                    <span class="tech-tag">AI Integration</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active" data-year="2025">
+                            <div class="timeline-marker">
+                                <div class="marker-icon">👑</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2025</div>
+                                <h3>The Rise</h3>
+                                <p>
+                                    Built Pulse AI HMS (157,000+ LOC), a Hospital Management System with deep backend layers. 
+                                    Completed Inbox Shield, an AI-powered scam email detector. Currently building Mail Hawk – 
+                                    a smart inbox protection system. Now aiming for top backend engineering roles at global companies.
+                                </p>
+                                <div class="timeline-tech">
+                                    <span class="tech-tag">AI/ML</span>
+                                    <span class="tech-tag">Large Scale Systems</span>
+                                    <span class="tech-tag">HMS</span>
+                                    <span class="tech-tag">Email Security</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motivational Quotes Section -->
+                <div class="quotes-section">
+                    <h3>Words of Wisdom</h3>
+                    <div class="quotes-container">
+                        <div class="quote-display" id="quote-display">
+                            <div class="quote-text"></div>
+                            <div class="quote-author"></div>
+                        </div>
+                        <div class="quote-controls">
+                            <button class="quote-btn" id="prev-quote">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="quote-btn" id="next-quote">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="quote-btn" id="share-quote">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">💻</span>
+                        Featured Projects
+                    </h2>
+                    <p class="section-subtitle">Building the future, one project at a time</p>
+                </div>
+
+                <!-- Project Filters -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai">AI Tools</button>
+                    <button class="filter-btn" data-filter="backend">Backend APIs</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                    <button class="filter-btn" data-filter="automation">Automation</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+
+                <!-- GitHub Stats -->
+                <div class="github-stats">
+                    <h3>Development Activity</h3>
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-number">250+</div>
+                                <div class="stat-label">Commits This Year</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-number">15</div>
+                                <div class="stat-label">Active Repositories</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">GitHub Stars</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">🎨</span>
+                        Project Gallery
+                    </h2>
+                    <p class="section-subtitle">Visual showcase of my work</p>
+                </div>
+
+                <!-- Gallery Controls -->
+                <div class="gallery-controls">
+                    <div class="gallery-search">
+                        <input type="text" id="gallery-search" placeholder="Search projects...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="gallery-filters">
+                        <button class="gallery-filter active" data-category="all">All</button>
+                        <button class="gallery-filter" data-category="ui">UI Design</button>
+                        <button class="gallery-filter" data-category="backend">Backend</button>
+                        <button class="gallery-filter" data-category="mobile">Mobile</button>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
+
+                <!-- Lightbox Modal -->
+                <div class="lightbox-modal" id="lightbox-modal">
+                    <div class="lightbox-content">
+                        <button class="lightbox-close">&times;</button>
+                        <div class="lightbox-image-container">
+                            <img id="lightbox-image" src="" alt="">
+                            <div class="lightbox-nav">
+                                <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="lightbox-info">
+                            <h3 id="lightbox-title"></h3>
+                            <p id="lightbox-description"></p>
+                            <div class="lightbox-tech" id="lightbox-tech"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">📞</span>
+                        Let's Create Something Amazing
+                    </h2>
+                    <p class="section-subtitle">Ready to bring your ideas to life</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Gujrat, Pakistan</p>
+                                <small>Available for remote work globally</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>moeed@thelegend.dev</p>
+                                <small>Response within 2 hours</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                                <p>linkedin.com/in/moeedhassan</p>
+                                <small>Professional networking</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Availability</h3>
+                                <p id="availability-status">Available</p>
+                                <small id="current-time"></small>
+                            </div>
+                        </div>
+
+                        <!-- Testimonials -->
+                        <div class="testimonials-section">
+                            <h3>Client Testimonials</h3>
+                            <div class="testimonials-slider" id="testimonials-slider">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-content">
+                                        <p>"Moeed delivered exceptional backend architecture for our healthcare platform. His attention to detail and professional approach exceeded our expectations."</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="author-name">Sarah Johnson</div>
+                                            <div class="author-role">CTO, HealthTech Solutions</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial-item">
+                                    <div class="testimonial-content">
+                                        <p>"Working with Moeed was a game-changer. His AI integration expertise helped us automate our entire email workflow. Highly recommended!"</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="author-name">Ahmed Khan</div>
+                                            <div class="author-role">Founder, TechFlow</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial-item">
+                                    <div class="testimonial-content">
+                                        <p>"The Legend lives up to his name! Fast delivery, clean code, and excellent communication throughout the project. Will definitely work with him again."</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="author-name">Emily Chen</div>
+                                            <div class="author-role">Product Manager, StartupX</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-controls">
+                                <button class="testimonial-prev">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="testimonial-next">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <div class="form-error" id="name-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="form-error" id="email-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-type">Project Type</label>
+                                <select id="project-type" name="project-type">
+                                    <option value="">Select Project Type</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="ai">AI Integration</option>
+                                    <option value="fullstack">Full Stack Application</option>
+                                    <option value="automation">Automation Tools</option>
+                                    <option value="consultation">Technical Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Budget Range</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select Budget Range</option>
+                                    <option value="1k-5k">$1,000 - $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k+">$25,000+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timeline">Project Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="">Select Timeline</option>
+                                    <option value="asap">ASAP (Rush Job)</option>
+                                    <option value="1-2weeks">1-2 Weeks</option>
+                                    <option value="1month">1 Month</option>
+                                    <option value="2-3months">2-3 Months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Project Description *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, requirements, and goals..."></textarea>
+                                <div class="form-error" id="message-error"></div>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to my newsletter for development tips and updates
+                                </label>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    Sending...
+                                </span>
+                            </button>
+                        </form>
+
+                        <div class="form-success" id="form-success">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for reaching out. I'll get back to you within 2 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Achievement Notification -->
+    <div class="achievement-notification" id="achievement-notification">
+        <div class="achievement-icon"></div>
+        <div class="achievement-text">
+            <div class="achievement-title"></div>
+            <div class="achievement-description"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="crown">👑</span>
+                        <span class="legend-text">THE LEGEND</span>
+                    </div>
+                    <p>Crafting digital excellence from Pakistan to the world</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#journey">Journey</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#projects">Backend Development</a></li>
+                            <li><a href="#projects">AI Integration</a></li>
+                            <li><a href="#projects">Full Stack Apps</a></li>
+                            <li><a href="#projects">Automation Tools</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="footer-social">
+                            <a href="https://linkedin.com/in/moeedhassan" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/moeedhassan" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/moeedhassan" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="mailto:moeed@thelegend.dev">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Moeed ul Hassan - The Legend. All rights reserved.</p>
+                <p>Made with ❤️ and lots of ☕ in Pakistan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/projects.js"></script>
+    <script src="data/quotes.js"></script>
+    <script src="data/achievements.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/gamification.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
